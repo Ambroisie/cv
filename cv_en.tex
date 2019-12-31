@@ -1,0 +1,238 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Twenty Seconds Resume/CV
+% LaTeX Template
+% Version 1.1 (8/1/17)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Carmine Spagnuolo (cspagnuolo@unisa.it) with major modifications by
+% Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% The MIT License (see included LICENSE file)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-------------------------------------------------------------------------------
+% PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%-------------------------------------------------------------------------------
+
+\documentclass[letterpaper]{twentysecondcv} % a4paper for A4
+
+\usepackage[utf8]{inputenc} % UTF8 encoding
+
+%-------------------------------------------------------------------------------
+% PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+
+\profilepic{} % Profile picture
+
+\cvname{Bruno BELANYI} % Your name
+\cvjobtitle{Computer Science Student} % Job title/career
+
+\cvdate{04 November 1999} % Date of birth
+\cvaddress{Kremlin-Bicêtre, France} % Current address
+\cvmail{bruno.belanyi@gmail.com} % Mail address
+\cvnumberphone{+33 7 81 59 44 86} % Phone number
+\cvsite{linkedin.com/in/bruno-belanyi} % Personal website
+
+%-------------------------------------------------------------------------------
+
+\begin{document}
+
+%-------------------------------------------------------------------------------
+% ABOUT ME
+%-------------------------------------------------------------------------------
+
+\aboutme{
+  Currently a fourth year student at EPITA, I am looking for an end-of-studies
+  internship abroad.
+}
+
+%-------------------------------------------------------------------------------
+% SKILLS
+%-------------------------------------------------------------------------------
+
+% Skill bar section, each skill must have a value between 0 an 6 (float)
+\skills{
+  {Algorithms \& Data Stuctures/5},
+  {Docker/3},
+  {Git/5.5},
+  {Bash/4},
+  {Caml/2},
+  {SQL/4.5},
+  {Java/4},
+  {Python/5},
+  {C/4.6},
+  {C++/5}}
+
+\skillstext{
+  {Independent / 5 \newline},
+  {Team work / 5 \newline},
+  {Microsoft Office / 4 \newline},
+  {Linux \& UNIX / 4.5 \newline}} % Same thing, without the progress bar
+
+\makeprofile % Print the sidebar
+
+%-------------------------------------------------------------------------------
+% INTERESTS
+%-------------------------------------------------------------------------------
+
+\section{Interests}
+
+I am interested in computer science and engineering in a broad sense. Always
+checking out new technologies and programming languages that pique my interest.
+I am also fond of mathematics, physics, and science in a broader sense.
+
+I am majoring in Image Processing, however I am interested in all topics
+relating to high-performance computing and optimisation.
+
+%-------------------------------------------------------------------------------
+% EDUCATION
+%-------------------------------------------------------------------------------
+
+\section{Education}
+
+\begin{twenty} % Environment for a list with descriptions
+  %\twentyitem{<dates>}{<title>}{<location>}{<description>}
+  %\twentyitemshort{<dates>}{<title/description>}
+
+  \twentyitem{2018-Now}
+    {Computer Science}
+    {EPITA, Kremlin-Bicêtre, France}
+    {Majoring in Image Processing.}
+
+  \twentyitem{2016-2018}
+    {Preparatory School}
+    {CPGE Corneille, Rouen, France}
+    {MPSI \& MP$\star$ --- Maths and Physics Engineering Preparatory Classes,
+    specialized in Computer Science.}
+
+  \twentyitem{2013-2016}
+    {High School}
+    {Institution Jean-Paul II, Rouen, France}
+    {Bacalauréat S with honors.}
+
+\end{twenty}
+
+\section{School Projects}
+
+\begin{twenty}
+
+  \twentyitem{1st Year Ing.}
+    {Tiger Compiler}
+    {C++ - 3 months}
+    {A full featured compiler in modern C++, following Andrew Appel's
+    \textit{Modern Compiler Implementation in ML}}
+
+  \twentyitem{1st Year Ing.}
+    {Bistromathique}
+    {C++ - 36 hour rush}
+    {A templated big-integer library and calculator, completed individually.}
+
+  \twentyitem{1st Year Ing.}
+    {42sh}
+    {C - 1 month}
+    {A shell following POSIX specificaions, completed in a group of four
+    with multiple deliverables and a test-suite.}
+
+  \twentyitem{1st Year Ing.}
+    {Raytracer}
+    {C - 36 hour rush}
+    {A simple 3D scene renderer, completed as a group of two.}
+
+\end{twenty}
+
+%-------------------------------------------------------------------------------
+% EXPERIENCE
+%-------------------------------------------------------------------------------
+
+\section{Experience}
+
+\begin{twenty}
+
+  \twentyitem{Jan-Jul'20}
+    {Teaching Assistant (YAKA)}
+    {EPITA, Kremlin-Bicêtre, France}
+    {Tutoring 3rd year students in C++, Java, \& SQL through oral presentations
+    and programming projects.}
+
+  \twentyitem{Sep-Dec'19}
+    {Natural Language Processing}
+    {Algolia, Paris, France}
+    {Building a Semantic Decompounding Library for Python \& C++}
+
+\end{twenty}
+
+%-------------------------------------------------------------------------------
+% OTHER INFORMATION
+%-------------------------------------------------------------------------------
+
+
+\section{Other Information}
+
+\subsection{Hobbies}
+
+\begin{twenty}
+
+  \twentyitemshort{}
+    {Archery}
+
+  \twentyitemshort{}
+    {Self-hosting various services on a VPS using Docker}
+
+  \twentyitemshort{}
+    {Robotics: member of EPITA's robotics association \textit{Evolutek<<}}
+
+\end{twenty}
+
+\subsection{Achievements \& Extra-curriculars}
+
+\begin{twenty}
+
+  \twentyitem{Jan-Jul'20}
+    {Chief Tiger Maintainer}
+    {EPITA}
+    {The \textbf{Tiger Compiler} project is a full-featured compiler in modern
+    C++, based on Andrew Appel's book \textit{Modern Compiler Implementation
+    in ML}.
+
+    A small team of assistants is chosen each year to improve the project, keep
+    it up-to-date, as well as presenting each stage of the project to the
+    students and guide them along the way.}
+
+  \twentyitem{2012}
+    {Maths Olympiads (School Level)}
+    {Rouen, France}
+    {First place at the \textit{René Merckhoffer} contest of Normandy.
+
+    This lead to a couple of two-weeks formation with \textit{Animath} on
+    Olympic-maths.}
+
+\end{twenty}
+
+%-------------------------------------------------------------------------------
+% SECOND PAGE EXAMPLE
+%-------------------------------------------------------------------------------
+
+%\newpage % Start a new page
+
+%\makeprofile % Print the sidebar
+
+%\section{Other information}
+
+%\subsection{Review}
+
+% Lorem ipsum.
+
+%\section{Other information}
+
+%\subsection{Review}
+
+% Lorem ipsum.
+
+%-------------------------------------------------------------------------------
+
+\end{document}
