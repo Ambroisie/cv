@@ -1,12 +1,15 @@
+BUILD_DIR := build
+FILES := \
+    cv_en.pdf \
+
 .PHONY: all
-all: cv_en.pdf
+all: $(FILES)
 
-cv_en.pdf: build/cv_en.pdf
-	cp build/cv_en.pdf .
+%.pdf: $(BUILD_DIR)/%.pdf
+	cp $< $@
 
-.PHONY: build/cv_en.pdf
-build/cv_en.pdf:
-	@latexmk # Let the tool do its job
+$(BUILD_DIR)/%.pdf: %.tex
+	@latexmk $< # Let the tool do its job
 
 .PHONY: clean
 clean:
