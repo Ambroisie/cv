@@ -1,0 +1,7 @@
+compile_pdf:
+  image: aergus/latex
+  script:
+    - latexmk
+  artifacts:
+    paths:
+    - build/cv_en.pdf
