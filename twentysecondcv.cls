@@ -111,6 +111,17 @@
   }
 }
 
+% Command for printing skill progress bars
+\newcommand\languages[1]{
+  \renewcommand{\languages}{
+    \begin{flushleft}
+      \foreach [count=\i] \x/\y in {#1}{
+        \x$ : $\y \newline
+      }
+    \end{flushleft}
+  }
+}
+
 %-------------------------------------------------------------------------------
 % SIDEBAR LAYOUT
 %-------------------------------------------------------------------------------
@@ -162,6 +173,11 @@
         \aboutme
       \end{flushleft}
     }
+
+    %------------------------------------------------
+
+    \profilesection{Languages}
+    \languages
 
     %------------------------------------------------
 
