@@ -7,3 +7,7 @@ cv_en.pdf: build/cv_en.pdf
 .PHONY: build/cv_en.pdf
 build/cv_en.pdf:
 	@latexmk # Let the tool do its job
+
+.PHONY: clean
+clean:
+	$(RM) -r build cv_en.pdf
