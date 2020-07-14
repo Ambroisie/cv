@@ -1,7 +1,8 @@
 compile_pdf:
   image: aergus/latex
   script:
-    - latexmk
+    - latexmk cv_en.tex cv_fr.tex
   artifacts:
     paths:
+    - build/cv_fr.pdf
     - build/cv_en.pdf
