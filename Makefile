@@ -1,7 +1,7 @@
 BUILD_DIR := build
 FILES := \
-    cv_en.pdf \
-    cv_fr.pdf \
+    en.pdf \
+    fr.pdf \
 
 .PHONY: all
 all: $(FILES)
