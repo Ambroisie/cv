@@ -14,4 +14,6 @@ $(BUILD_DIR)/%.pdf: %.tex cv_common.tex twentysecondcv.cls
 
 .PHONY: clean
 clean:
-	$(RM) -r build cv_en.pdf
+	$(RM) -r \
+	    $(BUILD_DIR) \
+	    $(FILES) \
