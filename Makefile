@@ -8,7 +8,7 @@ all: $(FILES)
 %.pdf: $(BUILD_DIR)/%.pdf
 	cp $< $@
 
-$(BUILD_DIR)/%.pdf: %.tex twentysecondcv.cls
+$(BUILD_DIR)/%.pdf: %.tex cv_common.tex twentysecondcv.cls
 	@latexmk $< # Let the tool do its job
 
 .PHONY: clean

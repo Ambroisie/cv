@@ -123,6 +123,35 @@
 }
 
 %-------------------------------------------------------------------------------
+% MULTIPLE LANGUAGE SUPPORT
+%-------------------------------------------------------------------------------
+
+% Either English or French toggle
+\newtoggle{english}
+
+% Use \toggletrue{english} for English language
+% Use \togglefalse{english} for French language
+\toggletrue{english}
+%\togglefalse{english}
+
+% Shorthand to have multi-language text
+\newcommand{\enfr}[2]{\iftoggle{english}{#1}{#2}}
+
+% Shorthand for month abbreviations
+\newcommand{\jan}{\enfr{Jan}{Jan}}
+\newcommand{\feb}{\enfr{Feb}{Fév}}
+\newcommand{\mar}{\enfr{Mar}{Mar}}
+\newcommand{\apr}{\enfr{Apr}{Avr}}
+\newcommand{\may}{\enfr{May}{Mai}}
+\newcommand{\jun}{\enfr{Jun}{Juin}}
+\newcommand{\jul}{\enfr{Jul}{Juil}}
+\newcommand{\aug}{\enfr{Aug}{Août}}
+\newcommand{\sep}{\enfr{Sep}{Sep}}
+\newcommand{\oct}{\enfr{Oct}{Oct}}
+\newcommand{\nov}{\enfr{Nov}{Nov}}
+\newcommand{\dec}{\enfr{Dec}{Déc}}
+
+%-------------------------------------------------------------------------------
 % SIDEBAR LAYOUT
 %-------------------------------------------------------------------------------
 
@@ -168,7 +197,7 @@
     %------------------------------------------------
 
     \ifthenelse{\equal{\aboutme}{}}{}{
-      \profilesection{About me}
+      \profilesection{\enfr{About me}{À propos de moi}}
       \begin{flushleft}
         \aboutme
       \end{flushleft}
@@ -176,17 +205,19 @@
 
     %------------------------------------------------
 
-    \profilesection{Languages}
+    \profilesection{\enfr{Languages}{Langues}}
     \languages
 
     %------------------------------------------------
 
-    \profilesection{Skills}
+    \profilesection{\enfr{Skills}{Compétences}}
 
     \skills
     \skillstext
     \scriptsize
-    (*)[The skill scale is from 0 (Fundamental Awareness) to 6 (Expert).]
+    \enfr
+      {(*)[The skill scale is from 0 (Fundamental Awareness) to 6 (Expert).]}
+      {(*)[Cette échelle va de 0 (Connaissance fondamentale) à 6 (Expert).]}
 
     %------------------------------------------------
 
@@ -259,7 +290,7 @@
   }\\
 }
 
-    %-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 % SMALL LIST ENVIRONMENT
 %-------------------------------------------------------------------------------
 
