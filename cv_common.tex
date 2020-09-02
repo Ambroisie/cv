@@ -44,32 +44,37 @@
 % SKILLS
 %-------------------------------------------------------------------------------
 
-% Skill bar section, each skill must have a value between 0 an 6 (float)
-\skills{%
-  {
-    \enfr
-      {Algorithms \& Data Stuctures}
-      {Algorithmes \& Structures de Données}
-    /5
-  },%
-  {Docker/3},%
-  {Git/5.5},%
-  {Bash/4},%
-  {Caml/2},%
-  {SQL/4.5},%
-  {Java/4},%
-  {Python/5},%
-  {C/4.6},%
-  {Rust/4.6},%
-  {C++/5}%
+% Skill section
+\programminglanguages{%
+  {C++},%
+  {Rust},%
+  {C},%
+  {Python},%
+  {Java},%
+  {SQL},%
+  {Caml},%
+  {Bash}%
 }
 
-\skillstext{%
-  {\enfr{Independent}{Indépendant} / 5 \newline},%
-  {\enfr{Team work}{Travail d'équipe} / 5 \newline},%
-  {Microsoft Office / 4 \newline},%
-  {Linux \& UNIX / 4.5 \newline}%
-} % Same thing, without the progress bar
+\programmingskills{%
+  {\enfr {Algorithms}{Algorithmes}},%
+  {\enfr{Data Stuctures}{Structures de Données}},%
+  {\enfr{Parallel Programming}{Programmation Parallèle}}%
+}
+
+\techskills{%
+  {Linux \& UNIX},%
+  {Git},%
+  {Docker},%
+  {CI/CD},%
+  {Jupyter Notebook},%
+  {Microsoft Office}%
+}
+
+\softskills{%
+  {\enfr{Independent}{Indépendant}},%
+  {\enfr{Team work}{Travail d'équipe}}%
+}
 
 \makeprofile % Print the sidebar
 

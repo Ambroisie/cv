@@ -72,6 +72,10 @@
   % Print the title and auto-width rule
   {\color{black!80} \huge #1 \rule[0.15\baselineskip]{\TotalSectionLength}{1pt}}
 }
+\newcommand{\profilesubsection}[1]{
+  % Print the sub-title
+  {\color{black!80} \large \textbf{#1}}
+}
 
 % Define custom commands for CV info
 \newcommand{\cvdate}[1]{\renewcommand{\cvdate}{#1}}
@@ -87,38 +91,56 @@
 % Command for printing the contact information icons
 \newcommand*\icon[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=1pt, fill=mainblue,mainblue,text=white] (char) {#1};}}
 
-% Command for printing skill progress bars
-\newcommand\skills[1]{
-  \renewcommand{\skills}{
-    \begin{tikzpicture}
-      \foreach [count=\i] \x/\y in {#1}{
-        \draw[fill=maingray,maingray] (0,\i) rectangle (6,\i+0.4);
-        \draw[fill=white,mainblue](0,\i) rectangle (\y,\i+0.4);
-        \node [above right] at (0,\i+0.4) {\x};
+% Command for printing skills
+\newcommand\programminglanguages[1]{
+  \renewcommand{\programminglanguages}{
+    \begin{itemize}
+      \foreach [count=\i] \x in {#1}{
+        \item \x
       }
-    \end{tikzpicture}
+    \end{itemize}
+  }
+}
+
+\newcommand\programmingskills[1]{
+  \renewcommand{\programmingskills}{
+    \begin{itemize}
+      \foreach [count=\i] \x in {#1}{
+        \item \x
+      }
+    \end{itemize}
+  }
+}
+
+\newcommand\techskills[1]{
+  \renewcommand{\techskills}{
+    \begin{itemize}
+      \foreach [count=\i] \x in {#1}{
+        \item \x
+      }
+    \end{itemize}
   }
 }
 
 % Command for printing skills text
-\newcommand\skillstext[1]{
-  \renewcommand{\skillstext}{
-    \begin{flushleft}
-      \foreach [count=\i] \x/\y in {#1}{
-        \x$ \star $\y
+\newcommand\softskills[1]{
+  \renewcommand{\softskills}{
+    \begin{itemize}
+      \foreach [count=\i] \x in {#1}{
+        \item \x
       }
-    \end{flushleft}
+    \end{itemize}
   }
 }
 
 % Command for printing skill progress bars
 \newcommand\languages[1]{
   \renewcommand{\languages}{
-    \begin{flushleft}
+    \begin{itemize}
       \foreach [count=\i] \x/\y in {#1}{
-        \x$ : $\y \newline
+        \item \x$ : $\y
       }
-    \end{flushleft}
+    \end{itemize}
   }
 }
 
@@ -212,12 +234,21 @@
 
     \profilesection{\enfr{Skills}{Compétences}}
 
-    \skills
-    \skillstext
-    \scriptsize
-    \enfr
-      {(*)[The skill scale is from 0 (Fundamental Awareness) to 6 (Expert).]}
-      {(*)[Cette échelle va de 0 (Connaissance fondamentale) à 6 (Expert).]}
+    \profilesubsection{\enfr{Programming Languages}{Langages de Programmation}}
+
+      \programminglanguages
+
+    \profilesubsection{\enfr{General Programming}{Programmation Générale}}
+
+      \programmingskills
+
+    \profilesubsection{Technologies}
+
+      \techskills
+
+    \profilesubsection{\enfr{Soft Skills}{Autres Compétences}}
+
+      \softskills
 
     %------------------------------------------------
 
