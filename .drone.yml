@@ -26,7 +26,7 @@ steps:
         from_secret: ssh_port
     when:
       branch:
-        - master
+        - main
       event:
         exclude:
           - pull_request
