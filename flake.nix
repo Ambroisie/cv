@@ -7,7 +7,7 @@
   };
 
   outputs = { self, nixpkgs, futils } @ inputs:
-    futils.lib.eachSystem futils.lib.allSystems (system:
+    futils.lib.eachDefaultSystem (system:
       let
         inherit (nixpkgs) lib;
         pkgs = nixpkgs.legacyPackages.${system};
