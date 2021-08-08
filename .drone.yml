@@ -7,6 +7,10 @@ steps:
   commands:
   - nix develop -c make
 
+- name: check
+  commands:
+  - nix flake check
+
 - name: deploy
   commands:
   - nix run github:ambroisie/nix-config#drone-scp
