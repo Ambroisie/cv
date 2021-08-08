@@ -15,8 +15,7 @@ steps:
   commands:
   - nix run github:ambroisie/nix-config#drone-scp
   environment:
-    SCP_SOURCE: /drone/src/*.pdf
-    SCP_STRIP_COMPONENTS: 2 # Make sure the tarball doesn't contain leading path
+    SCP_SOURCE: '*.pdf'
     SCP_RM: true # Make sure only the newly generated files are left
     SCP_HOST:
       from_secret: ssh_host
