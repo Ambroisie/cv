@@ -5,7 +5,7 @@ name: deploy CV
 steps:
 - name: build
   commands:
-  - nix develop -c make
+  - nix build
 
 - name: check
   commands:
@@ -15,7 +15,8 @@ steps:
   commands:
   - nix run github:ambroisie/nix-config#drone-rsync
   environment:
-    SYNC_SOURCE: '*.pdf'
+    # Use trailing slash to sync to folder's *content* to the target
+    SYNC_SOURCE: 'result/share/'
     SYNC_HOST:
       from_secret: ssh_host
     SYNC_TARGET:
