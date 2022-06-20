@@ -13,19 +13,18 @@ steps:
 
 - name: deploy
   commands:
-  - nix run github:ambroisie/nix-config#drone-scp
+  - nix run github:ambroisie/nix-config#drone-rsync
   environment:
-    SCP_SOURCE: '*.pdf'
-    SCP_RM: true # Make sure only the newly generated files are left
-    SCP_HOST:
+    SYNC_SOURCE: '*.pdf'
+    SYNC_HOST:
       from_secret: ssh_host
-    SCP_TARGET:
+    SYNC_TARGET:
       from_secret: ssh_target
-    SCP_USERNAME:
+    SYNC_USERNAME:
       from_secret: ssh_user
-    SCP_KEY:
+    SYNC_KEY:
       from_secret: ssh_key
-    SCP_PORT:
+    SYNC_PORT:
       from_secret: ssh_port
   when:
     branch:
