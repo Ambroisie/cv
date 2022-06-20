@@ -7,49 +7,54 @@
   };
 
   outputs = { self, nixpkgs, futils } @ inputs:
-    futils.lib.eachDefaultSystem (system:
-      let
-        inherit (nixpkgs) lib;
-        pkgs = nixpkgs.legacyPackages.${system};
-        buildInputs = with pkgs; [
-          gnumake
-          (texlive.combine {
-            inherit (texlive)
-              scheme-small
-              # Build script
-              latexmk
-              # Extra packages needed
-              clearsans
-              fontaxes
-              textpos
-              ifmtarg
-              marvosym
-              ;
-          })
-        ];
-      in
-      {
-        devShell = pkgs.mkShell {
-          name = "cv";
-          inherit buildInputs;
-        };
+    futils.lib.eachDefaultSystem
+      (system:
+        let
+          inherit (nixpkgs) lib;
+          pkgs = nixpkgs.legacyPackages.${system};
+          buildInputs = with pkgs; [
+            gnumake
+            (texlive.combine {
+              inherit (texlive)
+                scheme-small
+                # Build script
+                latexmk
+                # Extra packages needed
+                clearsans
+                fontaxes
+                textpos
+                ifmtarg
+                marvosym
+                ;
+            })
+          ];
+        in
+        {
+          devShells = {
+            default = pkgs.mkShell {
+              name = "cv";
+              inherit buildInputs;
+            };
+          };
 
-        defaultPackage = pkgs.stdenvNoCC.mkDerivation {
-          pname = "cv";
-          version = self.rev or "dirty";
-          src = ./.;
+          packages = {
+            default = pkgs.stdenvNoCC.mkDerivation {
+              pname = "cv";
+              version = self.rev or "dirty";
+              src = ./.;
 
-          inherit buildInputs;
+              inherit buildInputs;
 
-          buildPhase = ''
-            make
-          '';
+              buildPhase = ''
+                make
+              '';
 
-          installPhase = ''
-            install -Dm644 en.pdf $out/share/en.pdf
-            install -Dm644 fr.pdf $out/share/fr.pdf
-          '';
-        };
-      }
-    );
+              installPhase = ''
+                install -Dm644 en.pdf $out/share/en.pdf
+                install -Dm644 fr.pdf $out/share/fr.pdf
+              '';
+            };
+          };
+        }
+      );
 }
