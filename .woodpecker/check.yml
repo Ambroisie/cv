@@ -1,0 +1,53 @@
+labels:
+  type: exec
+
+pipeline:
+- name: nix flake check
+  image: bash
+  commands:
+  - nix flake check
+
+- name: build
+  image: bash
+  commands:
+  - nix build
+
+- name: deploy
+  image: bash
+  environment:
+  # Use trailing slash to sync to folder's *content* to the target
+  - SYNC_SOURCE=result/share/
+  secrets:
+  - source: ssh_host
+    target: sync_host
+  - source: ssh_target
+    target: sync_target
+  - source: ssh_user
+    target: sync_username
+  - source: ssh_key
+    target: sync_key
+  - source: ssh_port
+    target: sync_port
+  commands:
+      - nix run github:ambroisie/nix-config#drone-rsync
+  when:
+  - event: push
+    branch: main
+
+- name: notify
+  image: bash
+  secrets:
+  - source: matrix_homeserver
+    target: address
+  - source: matrix_roomid
+    target: room
+  - source: matrix_username
+    target: user
+  - source: matrix_password
+    target: pass
+  commands:
+  - nix run github:ambroisie/matrix-notifier
+  when:
+    status:
+    - failure
+    - success
