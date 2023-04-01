@@ -33,6 +33,10 @@ pipeline:
   when:
   - event: push
     branch: main
+  - event:
+    - cron
+    - deployment
+    - manual
 
 - name: notify
   image: bash
