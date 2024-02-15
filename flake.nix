@@ -14,19 +14,16 @@
           pkgs = nixpkgs.legacyPackages.${system};
           buildInputs = with pkgs; [
             gnumake
-            (texlive.combine {
-              inherit (texlive)
-                scheme-small
-                # Build script
-                latexmk
-                # Extra packages needed
-                clearsans
-                fontaxes
-                textpos
-                ifmtarg
-                marvosym
-                ;
-            })
+            (texliveSmall.withPackages (ps: with ps; [
+              # Build script
+              latexmk
+              # Extra packages needed
+              clearsans
+              fontaxes
+              textpos
+              ifmtarg
+              marvosym
+            ]))
           ];
         in
         {
